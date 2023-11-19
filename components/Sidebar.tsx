@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import path from "path";
 import { useMemo } from "react";
 import { HiHome } from "react-icons/hi"
 import { BiSearch } from "react-icons/bi"
