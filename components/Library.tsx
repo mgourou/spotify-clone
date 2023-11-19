@@ -1,7 +1,7 @@
 "use client"
 
 import { TbPlaylist } from 'react-icons/tb'
-import {AiOutlinePlus} from 'react-icons/ai'
+import { AiOutlinePlus } from 'react-icons/ai'
 
 const Library = () => {
 
