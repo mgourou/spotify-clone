@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className='text-white text-2xl font-semibold'>Newest Songs</h1>
         </div>
         <div>
-          List Of Songs !
+          List Of Songs ! 
         </div>
       </div>
     </div>
