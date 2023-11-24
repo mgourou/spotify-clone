@@ -124,7 +124,7 @@ const PlayerContent:React.FC<PlayerContentProps> = ({
             <div className="hidden md:flex w-full justify-end pr-2">
                 <div className="flex items-center gap-x-2 w-[120px] text-white">
                     <VolumeIcon onClick={toggleMute} size={34} className="cursor-pointer" />
-                    <Slider />
+                    <Slider value={volume} onChange={(value) => setVolume(value)} />
                 </div>
             </div>
         </div>
