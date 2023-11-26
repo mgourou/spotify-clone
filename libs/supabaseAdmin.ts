@@ -39,10 +39,10 @@ const upsertPriceRecord = async ( price: Stripe.Price) => {
         id: price.id,
         product_id: typeof price.product === 'string' ? price.product : '',
         active: price.active,
-        description: price.nickname ?? undefined,
-        unit_amount: price.unit_amount ?? undefined,
         currency: price.currency,
+        description: price.nickname ?? undefined,
         type: price.type,
+        unit_amount: price.unit_amount ?? undefined,
         interval: price.recurring?.interval,
         interval_count: price.recurring?.interval_count,
         trial_period_days: price.recurring?.trial_period_days,
@@ -50,7 +50,7 @@ const upsertPriceRecord = async ( price: Stripe.Price) => {
     };
 
      const { error } = await supabaseAdmin
-        .from('price')
+        .from('prices')
         .upsert([priceData])
 
     if (error){
