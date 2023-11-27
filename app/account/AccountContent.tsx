@@ -21,7 +21,7 @@ const AccountContent = () => {
        if (!loading && !user){
             router.replace('/'); 
         };
-    },[isLoading, router, user]);
+    },[isLoading, router, user, loading]);
 
     const redirectToCustomerPortal = async () => {
         setLoading(true);
