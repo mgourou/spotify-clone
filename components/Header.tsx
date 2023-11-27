@@ -1,19 +1,23 @@
 "use client";
 
+import Button from './Button'
+
 import { useRouter } from 'next/navigation';
 import { twMerge } from 'tailwind-merge'
+import { toast } from 'react-hot-toast';
+
 import { RxCaretLeft , RxCaretRight } from 'react-icons/rx'
 import { HiHome } from 'react-icons/hi'
 import { FaUserAlt } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
-import { withRouter } from 'next/router';
+
+
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
+
 import { useUser } from '@/hooks/useUser';
-import { toast } from 'react-hot-toast';
-
 import useAuthModal from '@/hooks/useAuthModal';
+import usePlayer from '@/hooks/usePlayer';
 
-import Button from './Button'
 
 interface HeaderProps {
     children: React.ReactNode,
@@ -25,6 +29,7 @@ const Header:React.FC<HeaderProps> = ({
     className
 }) => {
 
+    const player = usePlayer();
     const authModal = useAuthModal();
     const router = useRouter();
 
@@ -33,6 +38,7 @@ const Header:React.FC<HeaderProps> = ({
 
     const handleLogout = async () => {
             const { error } = await supabaseClient.auth.signOut();
+            player.reset();
             router.refresh();
 
             if (error) {
